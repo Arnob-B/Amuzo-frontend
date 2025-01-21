@@ -50,8 +50,8 @@ export default function Page({ searchParams }: {
     <div>
       {data.filter((e: productType) => {
         if (category && category != e.category) return false;
-        if (age && parseInt(age) > e.age) return false;
-        if (price && parseInt(price) < e.currentPrice) return false;
+        if (age && parseInt(age) < e.age) return false; // age smaller than the param age will be discarded
+        if (price && parseInt(price) < e.currentPrice) return false; // price above the param price will be discarded
         return true;
       }).map(
         e => {
