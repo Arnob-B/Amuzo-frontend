@@ -4,7 +4,7 @@ import { MapPin, Mail, Instagram, Linkedin } from 'lucide-react'
 
 function Footer() {
   return (
-    <footer className='flex flex-col gap-y-4 bg-[#F48F1B] font-shortStack'>
+    <footer className='flex flex-col gap-y-4 bg-[#F48F1B] font-shortStack' id="contact">
       <div className='grid grid-cols-1 sm:grid-cols-3 justify-around py-5 px-10'>
         <form className='flex flex-col gap-y-3'>
           <h3 className='font-semibold text-lg'>Get in touch</h3>
@@ -14,7 +14,7 @@ function Footer() {
         <div className='flex flex-col gap-y-2 items-center font-medium'>
           <h3 className='font-semibold text-lg'>Quick Links</h3>
           <Link href={"/"} className='hover:underline hover:underline-offset-1'>Home</Link>
-          <Link href={"/products"} className='hover:underline hover:underline-offset-1'>Products</Link>
+          <Link href={"/product"} className='hover:underline hover:underline-offset-1'>Products</Link>
           <Link href={"/blogs"} className='hover:underline hover:underline-offset-1'>Blogs</Link>
         </div>
         <div className='flex flex-col gap-y-3'>

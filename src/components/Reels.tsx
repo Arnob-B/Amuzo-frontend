@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from '@/components/ui/carousel'
 import Autoplay from 'embla-carousel-autoplay';
 import Link from "next/link";
@@ -7,20 +7,28 @@ import Link from "next/link";
 function ReelCarousel({ reels }: { reels: { src: string, link: string }[] }) {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
-  //const [count, setCount] = useState(0);
+  const reelsRef = useRef<(HTMLVideoElement | null)[]>([]);
 
   useEffect(() => {
     if (!api) {
       return
     }
 
-    //setCount(api.scrollSnapList().length)
     setCurrent(api.selectedScrollSnap() + 1)
 
     api.on("select", () => {
       setCurrent(api.selectedScrollSnap() + 1)
     })
   }, [api])
+
+  useEffect(() => {
+    if (reelsRef.current) {
+      reelsRef.current.forEach((reel, ind) => {
+        if (ind + 1 === current) reel?.play();
+        else reel?.pause();
+      })
+    }
+  }, [current]);
 
   return <>
     <Carousel opts={{
@@ -39,7 +47,7 @@ function ReelCarousel({ reels }: { reels: { src: string, link: string }[] }) {
         {reels.map((reel, ind) =>
           <CarouselItem key={ind} className='basis-1/3 hover:cursor-grab'>
             <Link href={reel.link} target='_blank'>
-              <video width={current === ind + 1 ? 600 : 400} height={current === ind + 1 ? 300 : 100} preload='none' autoPlay playsInline muted loop className='rounded-md'>
+              <video width={current === ind + 1 ? 600 : 400} height={current === ind + 1 ? 300 : 100} preload='none' autoPlay playsInline muted loop className='rounded-md' ref={(ref) => { reelsRef.current[ind] = ref }}>
                 <source src='/toys1.mp4' type='video/mp4' />
                 Your browser does not support the video tag.
               </video>
