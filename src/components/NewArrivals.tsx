@@ -9,7 +9,7 @@ function NewArrivals() {
       image: "/DkitBanner.png",
       hoverImage: "/DkitReel.png",
       price: "473.00",
-      link: "",
+      link: "/product/product1",
     },
     {
       name: "Product 2",
