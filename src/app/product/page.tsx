@@ -56,9 +56,9 @@ export default function Page() {
               if (price && parseInt(price) < e.currentPrice) return false; // price above the param price will be discarded
               return true;
             }).map(
-              e => {
+              (e, ind) => {
                 return (
-                  <div>
+                  <div key={ind}>
                     <ProductCard
                       images={e.images}
                       currentPrice={e.currentPrice}

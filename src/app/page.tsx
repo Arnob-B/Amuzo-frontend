@@ -1,15 +1,16 @@
-import Caraousel from "@/components/Caraousel";
+import Hero from "@/components/Hero";
 import NewArrivals from "@/components/NewArrivals";
+import Reels from "@/components/Reels";
+import ShopByAge from "@/components/ShopByAge";
+import ShopByCategory from "@/components/ShopByCategory";
 
 export default function Home() {
   return (
     <>
-      <Caraousel />
-      <div className="bg-black" >
-        <div className="text-white text-4xl font-bold text-shadow" >
-          Shop With Reels
-        </div>
-      </div>
+      <Hero />
+      <Reels />
+      <ShopByAge />
+      <ShopByCategory />
       <NewArrivals />
     </>
   );
