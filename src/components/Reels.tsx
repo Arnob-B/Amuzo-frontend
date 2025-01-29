@@ -45,7 +45,7 @@ function ReelCarousel({ reels }: { reels: { src: string, link: string }[] }) {
       ]}>
       <CarouselContent>
         {reels.map((reel, ind) =>
-          <CarouselItem key={ind} className='basis-1/3 hover:cursor-grab'>
+          <CarouselItem key={ind} className='sm:basis-1/3 hover:cursor-grab'>
             <Link href={reel.link} target='_blank'>
               <video width={current === ind + 1 ? 600 : 400} height={current === ind + 1 ? 300 : 100} preload='none' autoPlay playsInline muted loop className='rounded-md' ref={(ref) => { reelsRef.current[ind] = ref }}>
                 <source src='/toys1.mp4' type='video/mp4' />
@@ -85,7 +85,7 @@ function Reels() {
 
   return (
     <div className='h-screen p-8 bg-[#FFC600] flex flex-col items-center gap-y-8 font-shortStack'>
-      <h1 className='w-fit text-4xl sm:text-5xl font-bold'>Shop from Reels</h1>
+      <h1 className='w-fit text-4xl sm:text-5xl font-bold text-center'>Shop from Reels</h1>
       <ReelCarousel reels={reels} />
     </div>
   )

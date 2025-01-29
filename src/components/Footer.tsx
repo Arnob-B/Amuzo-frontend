@@ -5,17 +5,18 @@ import { MapPin, Mail, Instagram, Linkedin } from 'lucide-react'
 function Footer() {
   return (
     <footer className='flex flex-col gap-y-4 bg-[#F48F1B] font-shortStack' id="contact">
-      <div className='grid grid-cols-1 sm:grid-cols-3 justify-around py-5 px-10'>
-        <form className='flex flex-col gap-y-3'>
+      <div className='grid grid-cols-1 gap-y-6 sm:grid-cols-3 justify-around py-5 px-10'>
+        <form className='flex flex-col items-center sm:pl-10 sm:items-start gap-y-3'>
           <h3 className='font-semibold text-lg'>Get in touch</h3>
-          <input type="text" className='bg-white rounded-sm outline-none px-2 py-1' placeholder='Email Address' />
+          <input type="text" className='bg-white rounded-sm w-full outline-none px-2 py-1' placeholder='Email Address' />
           <button className='bg-yellow-500 text-white rounded-sm w-fit px-2 py-1'>Subscribe</button>
         </form>
         <div className='flex flex-col gap-y-2 items-center font-medium'>
           <h3 className='font-semibold text-lg'>Quick Links</h3>
           <Link href={"/"} className='hover:underline hover:underline-offset-1'>Home</Link>
           <Link href={"/product"} className='hover:underline hover:underline-offset-1'>Products</Link>
-          <Link href={"/blogs"} className='hover:underline hover:underline-offset-1'>Blogs</Link>
+          <Link href={"/#gallery"} className='hover:underline hover:underline-offset-1'>Gallery</Link>
+          <Link href={"/#reviews"} className='hover:underline hover:underline-offset-1'>Reviews</Link>
         </div>
         <div className='flex flex-col gap-y-3'>
           <div className='flex flex-col gap-y-3'>

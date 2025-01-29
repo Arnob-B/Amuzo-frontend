@@ -21,9 +21,9 @@ const ProductPage: React.FC<ProductData> = ({
   const [currentImage, setCurrentImage] = useState<string>(photos[0]);
 
   return (
-    <div className="font-shortStack bg-[#FFC600] flex flex-col md:flex-row justify-center items-start p-8">
-      <div className='flex flew-row md:flex-col gap-3 px-4'>
-        {photos.map((photoSrc, ind) => <Image key={ind} src={photoSrc} alt='Product Image' height={150} width={150} className='rounded-lg' onClick={() => setCurrentImage(photos[ind])} />)}
+    <div className="font-shortStack bg-[#FFC600] flex flex-col md:flex-row gap-y-8 justify-center items-start p-8">
+      <div className='flex flex-row md:flex-col gap-3 px-4'>
+        {photos.map((photoSrc, ind) => <Image key={ind} src={photoSrc} alt='Product Image' height={150} width={150} className='rounded-lg w-1/3 sm:w-auto' onClick={() => setCurrentImage(photos[ind])} />)}
       </div>
       <div className="md:w-1/2 flex justify-center items-center">
         <Image

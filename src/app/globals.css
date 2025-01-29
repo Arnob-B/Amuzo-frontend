@@ -9,6 +9,7 @@ body {
 root{
   margin:0px 0px 0px 0px;
   padding:0px 0px 0px 0px;
+  background-color: #ffc600;
 }
 @layer base {
   :root {

@@ -6,7 +6,7 @@ export default function Filters() {
   const [isCategoryOpen, setIsCategoryOpen] = useState(true);
 
   return (
-    <div className="bg-orange-400 min-h-screen p-4 flex flex-col gap-6 shadow-lg">
+    <div className="bg-[#F48F1B] w-full p-4 flex flex-col gap-6 shadow-lg">
       <h2 className="text-black text-2xl font-bold">Filters</h2>
 
       {/* Age Filter */}
@@ -15,7 +15,7 @@ export default function Filters() {
           className="flex justify-between items-center cursor-pointer"
           onClick={() => setIsAgeOpen(!isAgeOpen)}
         >
-          <h3 className="text-black text-lg font-semibold">Age +</h3>
+          <h3 className="text-black text-lg font-semibold">Age</h3>
           <span>{isAgeOpen ? "−" : "+"}</span>
         </div>
         {isAgeOpen && (
@@ -34,7 +34,7 @@ export default function Filters() {
           className="flex justify-between items-center cursor-pointer"
           onClick={() => setIsPriceOpen(!isPriceOpen)}
         >
-          <h3 className="text-black text-lg font-semibold">Price +</h3>
+          <h3 className="text-black text-lg font-semibold">Price</h3>
           <span>{isPriceOpen ? "−" : "+"}</span>
         </div>
         {isPriceOpen && (
@@ -52,7 +52,7 @@ export default function Filters() {
           className="flex justify-between items-center cursor-pointer"
           onClick={() => setIsCategoryOpen(!isCategoryOpen)}
         >
-          <h3 className="text-black text-lg font-semibold">Category +</h3>
+          <h3 className="text-black text-lg font-semibold">Category</h3>
           <span>{isCategoryOpen ? "−" : "+"}</span>
         </div>
         {isCategoryOpen && (

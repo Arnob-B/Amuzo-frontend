@@ -16,7 +16,7 @@ const ProductCard = ({
 
 }) => {
   return (
-    <div className="bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden w-full m-4">
+    <div className="bg-white/30 rounded-lg shadow-lg overflow-hidden w-full m-4">
       <img src={images[0]} alt={name} className="w-full h-48 object-cover" />
       <div className="p-4">
         <h2 className="text-xl font-semibold text-gray-800">{name}</h2>
@@ -41,15 +41,15 @@ export default function Page() {
   const age = searchParams.get('age');
   return (
     <div>
-      <div className="flex bg-orange-300 min-h-screen">
+      <div className="flex flex-col items-center gap-4 py-4 sm:flex-row font-shortStack bg-yellow-500 min-h-screen">
         {/* Sidebar Filters */}
-        <div className="w-1/3 md:1/4 lg:w-1/6">
+        <div className="w-2/3 md:w-1/4 lg:w-1/6">
           <Filters />
         </div>
         {/* Main Content */}
-        <div className="w-2/3 md:3/4 lg:w-5/6 p-2 md:p-4 lg:p-6 border-2 border-black">
-          <h1 className="text-3xl font-bold mb-4">Product Listings</h1>
-          <div className="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pr-4">
+        <div className="md:3/4 lg:w-5/6 p-2 md:p-4 lg:p-6">
+          <h1 className="text-3xl font-bold text-center mb-4">Product Listings</h1>
+          <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pr-4">
             {data.filter((e: productType) => {
               if (category && category != e.category) return false;
               if (age && parseInt(age) < e.age) return false; // age smaller than the param age will be discarded
