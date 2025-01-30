@@ -21,14 +21,14 @@ function Footer() {
         <div className='flex flex-col gap-y-3'>
           <div className='flex flex-col gap-y-3'>
             <h2 className='font-semibold text-lg text-center'>Contact Us</h2>
-            <div className='flex gap-x-4'>
+            <div className='flex gap-x-4 text-center'>
               <MapPin size={36} />
               <p>OHM INDUSTRIAL COMPLEX, Dhulagori
                 Howrah, West Bengal, 711302</p>
             </div>
-            <div className='flex gap-x-4'>
+            <div className='flex gap-x-4 w-full'>
               <Mail />
-              <Link href={"mailto:connect@amuzo.in"} className='hover:underline hover:underline-offset-1'>connect@amuzo.in</Link>
+              <Link href={"mailto:connect@amuzo.in"} className='hover:underline hover:underline-offset-1 text-center w-4/5'>connect@amuzo.in</Link>
             </div>
             <div className='flex justify-center gap-x-8'>
               <Link href={"https://www.instagram.com/amuzo.in/"}>
