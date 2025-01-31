@@ -15,8 +15,9 @@ const VideoCard = ({ source, id, current }: { source: string, id: number, curren
   const videoRef = useRef(null);
 
   useEffect(() => {
+    /*if (videoRef.current === null) return;
     if (current == id) videoRef.current.play();
-    else videoRef.current.pause();
+    else videoRef.current.pause(); */
   }, [current])
   return (
     <div className="w-full h-full">

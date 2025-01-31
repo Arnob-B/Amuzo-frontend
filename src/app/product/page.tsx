@@ -1,6 +1,7 @@
 "use client"
 import { useSearchParams } from "next/navigation";
 import data, { productType } from "../data";
+import { Suspense } from "react";
 
 import Filters from "./Filter";
 
@@ -34,11 +35,36 @@ const ProductCard = ({
   );
 };
 
-export default function Page() {
+function Products() {
   const searchParams = useSearchParams();
   const category = searchParams.get('category');
   const price = searchParams.get('price');
   const age = searchParams.get('age');
+  return (
+    <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pr-4">
+      {data.filter((e: productType) => {
+        if (category && category != e.category) return false;
+        if (age && parseInt(age) < e.age) return false; // age smaller than the param age will be discarded
+        if (price && parseInt(price) < e.currentPrice) return false; // price above the param price will be discarded
+        return true;
+      }).map(
+        (e, ind) => {
+          return (
+            <div key={ind}>
+              <ProductCard
+                images={e.images}
+                currentPrice={e.currentPrice}
+                name={e.name}
+              />
+            </div>
+          )
+        }
+      )}
+    </div>
+  )
+}
+
+export default function Page() {
   return (
     <div>
       <div className="flex flex-col items-center gap-4 py-4 sm:flex-row font-shortStack bg-yellow-500 min-h-screen">
@@ -49,26 +75,9 @@ export default function Page() {
         {/* Main Content */}
         <div className="md:3/4 lg:w-5/6 p-2 md:p-4 lg:p-6">
           <h1 className="text-3xl font-bold text-center mb-4">Product Listings</h1>
-          <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pr-4">
-            {data.filter((e: productType) => {
-              if (category && category != e.category) return false;
-              if (age && parseInt(age) < e.age) return false; // age smaller than the param age will be discarded
-              if (price && parseInt(price) < e.currentPrice) return false; // price above the param price will be discarded
-              return true;
-            }).map(
-              (e, ind) => {
-                return (
-                  <div key={ind}>
-                    <ProductCard
-                      images={e.images}
-                      currentPrice={e.currentPrice}
-                      name={e.name}
-                    />
-                  </div>
-                )
-              }
-            )}
-          </div>
+          <Suspense>
+            <Products />
+          </Suspense>
         </div>
       </div>
     </div>
