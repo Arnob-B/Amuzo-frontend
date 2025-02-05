@@ -97,3 +97,30 @@ root{
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   }
 }
+
+.hero-image-1{
+  animation: hero-image-animation 15s ease-in-out infinite forwards;
+}
+
+.hero-image-2{
+  animation: hero-image-animation 15s ease-in-out 5s infinite forwards;
+}
+
+.hero-image-3{
+  animation: hero-image-animation 15s ease-in-out 10s infinite forwards;
+}
+
+@keyframes hero-image-animation{
+  0%{
+    opacity: 0%;
+  }
+  10%{
+    opacity: 100%;
+  }
+  35%{
+    opacity: 100%;
+  }
+  40%{
+    opacity: 0%;
+  }
+}

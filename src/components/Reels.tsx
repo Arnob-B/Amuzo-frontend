@@ -34,7 +34,7 @@ function ReelCarousel({ reels }: { reels: { src: string, link: string }[] }) {
     <Carousel opts={{
       loop: true
     }}
-      className='w-full'
+      className='w-full h-full'
       setApi={setApi}
       plugins={[
         Autoplay({
@@ -43,12 +43,12 @@ function ReelCarousel({ reels }: { reels: { src: string, link: string }[] }) {
           stopOnInteraction: false
         })
       ]}>
-      <CarouselContent>
+      <CarouselContent className='h-full flex justify-end items-end'>
         {reels.map((reel, ind) =>
-          <CarouselItem key={ind} className='sm:basis-1/3 hover:cursor-grab'>
-            <Link href={reel.link} target='_blank'>
-              <video width={current === ind + 1 ? 600 : 400} height={current === ind + 1 ? 300 : 100} preload='none' autoPlay playsInline muted loop className='rounded-md' ref={(ref) => { reelsRef.current[ind] = ref }}>
-                <source src='/toys1.mp4' type='video/mp4' />
+          <CarouselItem key={ind} className='grid justify-items-center items-end sm:basis-1/3 md:basis-1/5 hover:cursor-grab'>
+            <Link href={reel.link} target='_blank' className='h-fit'>
+              <video width={current === ind + 1 ? 275 : 250} height={800} preload='none' autoPlay playsInline muted loop className='object-cover rounded-2xl' ref={(ref) => { reelsRef.current[ind] = ref }}>
+                <source src={reel.src} type='video/mp4' />
                 Your browser does not support the video tag.
               </video>
             </Link>
@@ -62,29 +62,33 @@ function Reels() {
 
   const reels = [
     {
-      src: "/toys1.mp4",
+      src: "/reels/discovery-kit-reel-1.mp4",
       link: "/product"
     },
     {
-      src: "/toys1.mp4",
+      src: "/reels/discovery-kit-reel-1.mp4",
       link: "/product"
     },
     {
-      src: "/toys1.mp4",
+      src: "/reels/discovery-kit-reel-1.mp4",
       link: "/product"
     },
     {
-      src: "/toys1.mp4",
+      src: "/reels/discovery-kit-reel-1.mp4",
       link: "/product"
     },
     {
-      src: "/toys1.mp4",
+      src: "/reels/discovery-kit-reel-1.mp4",
       link: "/product"
-    }
+    },
+    {
+      src: "/reels/discovery-kit-reel-1.mp4",
+      link: "/product"
+    },
   ]
 
   return (
-    <div className='h-screen p-8 bg-[#FFC600] flex flex-col items-center gap-y-8 font-shortStack'>
+    <div className='min-h-screen p-8 flex flex-col items-center gap-y-8 font-shortStack'>
       <h1 className='w-fit text-4xl sm:text-5xl font-bold text-center'>Shop from Reels</h1>
       <ReelCarousel reels={reels} />
     </div>
